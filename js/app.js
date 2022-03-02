@@ -76,7 +76,7 @@ const displayPhoneDetails = (slugs) => {
   <div class="card border-0 shadow-lg mx-auto">
   <img src="${slugs.image}" class="card-img-top w-25 mx-auto my-3" alt="..." />
   <div class="container">
-      <h5 class="text-center">Release Date: ${slugs.releaseDate}</h5>
+      <h5 class="text-center">Release Date: ${slugs?.releaseDate}</h5>
       <h3>Main Features</h3>
       <div class="row">
           <div class="col-lg-6 my-auto">
@@ -88,7 +88,7 @@ const displayPhoneDetails = (slugs) => {
           <div class="col-lg-6 mt-lg-1">
               <p>${slugs.mainFeatures.storage}</p>
               <p>${slugs.mainFeatures.displaySize}</p>
-              <p>${slugs.mainFeatures.chipset}</p>
+              <p>${slugs.mainFeatures.chipSet}</p>
               <p>${slugs.mainFeatures.memory}</p>
           </div>
           <h3>Sensors</h3>

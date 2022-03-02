@@ -4,13 +4,13 @@ const inputValues = () => {
   const searchValue = searchField.value;
   searchField.value = "";
   return searchValue;
-}
+};
 
 //Container
 const containerValue = (value) => {
   const phoneContainer = document.getElementById(value + "-container");
   return phoneContainer;
-}
+};
 
 const loadApi = async () => {
   // search field value
@@ -22,13 +22,12 @@ const loadApi = async () => {
 };
 
 const displayPhone = (phones) => {
-  const phoneContainer = containerValue('phone');
+  const phoneContainer = containerValue("phone");
   phoneContainer.textContent = "";
 
   phones.forEach((phone) => {
     const div = document.createElement("div");
     div.classList.add("col");
-
 
     //Adding Html into div
     div.innerHTML = `
@@ -56,14 +55,13 @@ const showPhoneDetails = async (slug) => {
 };
 
 const displayPhoneDetails = (slugs) => {
- const detailContainer = containerValue('detail');
- detailContainer.textContent = "";
+  const detailContainer = containerValue("detail");
+  detailContainer.textContent = "";
 
- //Creating div and showing the div
+  //Creating div and showing the div
   detailContainer.style.display = "block";
   const div = document.createElement("div");
   div.classList.add("col");
-
 
   // Adding Html into div
   div.innerHTML = `
@@ -97,15 +95,6 @@ const displayPhoneDetails = (slugs) => {
 </div>
 </div>
   `;
-
-  /*
-  "WLAN": "Wi-Fi 802.11 a/b/g/n/ac/6, dual-band, hotspot",
-"Bluetooth": "5.0, A2DP, LE",
-"GPS": "Yes, with A-GPS, GLONASS, GALILEO, BDS, QZSS",
-"NFC": "Yes",
-"Radio": "No",
-"USB": "Lightning, USB 2.0"
-*/
 
   detailContainer.appendChild(div);
 };

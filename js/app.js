@@ -18,30 +18,29 @@ const loadApi = async () => {
   const url = `https://openapi.programming-hero.com/api/phones?search=${searchValue}`;
   const res = await fetch(url);
   const data = await res.json();
-  displayPhone(data.data);
+  displayPhone(data);
 };
 
 const displayPhone = (phones) => {
   const phoneContainer = containerValue("phone");
   phoneContainer.textContent = "";
-
-  phones.forEach((phone) => {
+  const phone = phones.data.slice(0,20);
+  phone.forEach(p => {
+        
     const div = document.createElement("div");
     div.classList.add("col");
-
-    //Adding Html into div
     div.innerHTML = `
     <div class="card w-75 border-0 shadow-lg mx-auto my-4">
-    <img src="${phone.image}" class="card-img-top w-50 mx-auto my-3" alt="..." />
+    <img src="${p.image}" class="card-img-top w-50 mx-auto my-3" alt="..." />
     <div class="card-body text-center my-3">
-      <h5 class="card-title">Phone Name: ${phone.phone_name}</h5>
-      <p>Brand Name: ${phone.brand}</p>
-      <button class='btn btn-success' onclick="showPhoneDetails('${phone.slug}')">Show Details</button>
+      <h5 class="card-title">Phone Name: ${p.phone_name}</h5>
+      <p>Brand Name: ${p.brand}</p>
+      <button class='btn btn-success' onclick="showPhoneDetails('${p.slug}')">Show Details</button>
     </div>
   </div>
   `;
-    phoneContainer.appendChild(div);
-  });
+  phoneContainer.appendChild(div);
+  })
 };
 
 // show phone details
@@ -128,4 +127,6 @@ const closeDetails = () => {
 // Button Call
 document.getElementById("search-button").addEventListener("click", () => {
   loadApi();
+  containerValue('detail').textContent = ''
+  containerValue('phone').textContent = ''
 });

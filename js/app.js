@@ -45,7 +45,7 @@ const displayPhone = (mobiles) => {
     <div class="card-body text-center my-3">
       <h5 class="card-title">Phone Name: ${phone.phone_name}</h5>
       <p>Brand Name: ${phone.brand}</p>
-      <button class='btn btn-success' onclick="showPhoneDetails('${p.slug}')">Show Details</button>
+      <button class='btn btn-success' onclick="showPhoneDetails('${phone.slug}')">Show Details</button>
     </div>
   </div>
   `;
